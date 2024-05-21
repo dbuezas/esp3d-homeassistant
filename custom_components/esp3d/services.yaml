@@ -1,0 +1,12 @@
+send_gcode:
+  name: Send
+  target:
+    device:
+      integration: esp3d
+  fields:
+    gcode:
+      name: gcode
+      required: true
+      selector:
+        text:
+          multiline: true

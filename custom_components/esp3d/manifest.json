@@ -1,0 +1,10 @@
+{
+  "domain": "esp3d",
+  "name": "ESP3D",
+  "codeowners": [],
+  "documentation": "https://www.home-assistant.io/integrations/tcp",
+  "iot_class": "local_polling",
+  "config_flow": true,
+  "version": "1.0.0"
+
+}
