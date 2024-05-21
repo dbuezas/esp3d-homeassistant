@@ -1024,6 +1024,7 @@ layout:
 <img width="400" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/b614e39b-cb4f-47c1-9ac5-994e5acee072">
 
 ---
+
 ## Text to speech notification when print finished
 
 <details>
