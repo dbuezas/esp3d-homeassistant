@@ -53,7 +53,7 @@ Esp3d (or any serial wifi equivalent) integration with home assistant
 ## Movement & Temperature controls
 
 <details>
-  <summary>Card configuration</summary>
+  <summary>Controls</summary>
 
 ### Requires
 
@@ -566,7 +566,7 @@ cards:
 ## Gcode, file and status controls
 
 <details>
-  <summary>Card configuration 2</summary>
+  <summary>Status card</summary>
 
 ### Requires
 
@@ -878,7 +878,7 @@ cards:
 ## Bed level & printed object visualisation
 
 <details>
-  <summary>Card configuration 3</summary>
+  <summary>3d visualization</summary>
   
   ### Requires
 
@@ -1027,7 +1027,7 @@ layout:
 ## Text to speech notification when print finished
 
 <details>
-  <summary>Card configuration 3</summary>
+  <summary>Print finish phone notification</summary>
 
 ```yaml
 alias: Notify 3d print ready
@@ -1046,6 +1046,35 @@ action:
         tts_text: Printer Finishing
         ttl: 0
         priority: high
+mode: single
+```
+</details>
+
+--
+
+## Phone progredd notification 
+
+<details>
+  <summary>Progress notification</summary>
+
+  ```yaml
+alias: Notify print progress
+description: Notify print progress
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.ultimaker_progress
+condition: []
+action:
+  - service: notify.mobile_app_pixel_7
+    data:
+      message: |
+        {{ trigger.to_state.state }}% complete
+      data:
+        notification_icon: mdi:printer-3d
+        tag: print_progress
+        clickAction: /lovelace/ultimaker
+        sticky: true
 mode: single
 ```
 </details>
