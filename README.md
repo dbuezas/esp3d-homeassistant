@@ -1023,3 +1023,29 @@ layout:
 
 <img width="400" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/b614e39b-cb4f-47c1-9ac5-994e5acee072">
 
+---
+## Text to speech notification when print finished
+
+<details>
+  <summary>Card configuration 3</summary>
+
+```yaml
+alias: Notify 3d print ready
+description: ""
+trigger:
+  - platform: numeric_state
+    entity_id:
+      - sensor.ultimaker_print_progress
+    above: .99
+condition: []
+action:
+  - service: notify.mobile_app_pixel_7
+    data:
+      message: TTS
+      data:
+        tts_text: Printer Finishing
+        ttl: 0
+        priority: high
+mode: single
+```
+</details>
