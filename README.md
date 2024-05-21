@@ -52,9 +52,6 @@ Esp3d (or any serial wifi equivalent) integration with home assistant
 
 ## Movement & Temperature controls
 
-<img width="200" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/ccb69055-0e8b-41cd-bbea-6f7d19376f05">
-
-
 <details>
   <summary>Card configuration</summary>
 
@@ -562,11 +559,11 @@ cards:
 
 </details>
 
+<img width="200" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/ccb69055-0e8b-41cd-bbea-6f7d19376f05">
+
 ---
 
 ## Gcode, file and status controls
-
-<img width="200" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/f019ab7f-a9ea-4cdb-80f2-0e4ced05e15c">
 
 <details>
   <summary>Card configuration 2</summary>
@@ -874,11 +871,11 @@ cards:
 
 </details>
 
+<img width="200" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/f019ab7f-a9ea-4cdb-80f2-0e4ced05e15c">
+
 ---
 
 ## Bed level & printed object visualisation
-
-<img width="400" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/b614e39b-cb4f-47c1-9ac5-994e5acee072">
 
 <details>
   <summary>Card configuration 3</summary>
@@ -1022,5 +1019,7 @@ layout:
         - -1
         - 200
 ```
-
 </details>
+
+<img width="400" alt="image" src="https://github.com/dbuezas/esp3d-homeassistant/assets/777196/b614e39b-cb4f-47c1-9ac5-994e5acee072">
+
