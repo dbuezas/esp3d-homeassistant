@@ -97,10 +97,13 @@ class Esp3d:
     async def async_send(self, gcode: str):
         if self.writer is None or self.killed:
             raise ConnectionError()
-
-        self.writer.write((gcode + "\r").encode())
-        await self.writer.drain()
-        _LOGGER.debug(f"sent: {gcode}")
+        try:
+            self.writer.write((gcode + "\r").encode())
+            await self.writer.drain()
+            _LOGGER.debug(f"sent: {gcode}")
+        except:
+            self.writer.close()
+            raise
         responses = []
         stop_event = asyncio.Event()
 
