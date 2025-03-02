@@ -1053,7 +1053,7 @@ mode: single
 
 --
 
-## Phone progredd notification 
+## Phone progress notification 
 
 <details>
   <summary>Progress notification</summary>
@@ -1077,5 +1077,28 @@ action:
         clickAction: /lovelace/ultimaker
         sticky: true
 mode: single
+```
+</details>
+
+## Android status widget
+
+![1000014598](https://github.com/user-attachments/assets/bdce2a62-4312-49d0-940f-e3a3aebcc088)
+
+
+<details>
+  <summary>Progress notification</summary>
+  
+```jinja2
+<b>{{states('sensor.ultimaker_notification')}}:</b> {{ states('sensor.ultimaker_progress')|int(100) }}%
+
+{% set remaining = states('sensor.ultimaker_remaining') | int(0) %}
+{% if remaining > 0 %}
+<br>
+<b>⏳ Remain:</b> <i>{{ '%02dh %02dm' | format(remaining // 60, remaining % 60) }}</i>
+<br>
+<b>⏰ Finish:</b> <i>{{ (now() + timedelta(minutes=remaining)).strftime('%I:%M %p') }}</i>
+{% endif %}
+<br>
+<b>🕒 Updated:</b> <i>{{ now().strftime('%I:%M %p') }}</i>
 ```
 </details>
