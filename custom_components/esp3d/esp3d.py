@@ -67,9 +67,10 @@ class Esp3d:
         while not self.killed:
             try:
                 # Report Temperatures every once a while to check the connection
-                await self.async_send("M105")
+                self.writer.write(("M105" + "\r").encode())
+                await self.writer.drain()
             except:
-                pass
+                self.reader, self.writer = (None, None)
             await asyncio.sleep(30)
 
     async def async_monitor_connection(self):
@@ -82,7 +83,7 @@ class Esp3d:
                 # self.writer.write(("M115\r").encode())  # fetch uuid
                 # await self.writer.drain()
                 await self._async_continuous_read()
-            except (OSError, asyncio.TimeoutError, asyncio.IncompleteReadError) as e:
+            except:
                 self.reader, self.writer = (None, None)
                 _LOGGER.warn("Unable to connect. Will retry...")
             self.event_emitter.emit(Event.CONNECTION_STATUS, False)
