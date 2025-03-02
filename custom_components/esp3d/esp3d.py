@@ -64,14 +64,24 @@ class Esp3d:
                 self.event_emitter.emit(Event.CONNECTION_STATUS, True)
 
     async def async_keep_alive(self):
+        last_received = datetime.now()
+
+        def update_last_received(_):
+            nonlocal last_received
+            last_received = datetime.now()
+
+        self.event_emitter.on(Event.ANY, update_last_received)
+
         while not self.killed:
-            try:
-                # Report Temperatures every once a while to check the connection
-                self.writer.write(("M105" + "\r").encode())
-                await self.writer.drain()
-            except:
-                self.reader, self.writer = (None, None)
-            await asyncio.sleep(30)
+            if (datetime.now() - last_received).total_seconds() >= 30:
+                try:
+                    self.writer.write(("M105" + "\r").encode())
+                    await self.writer.drain()
+                except:
+                    self.reader, self.writer = (None, None)
+
+            wait_time = max(0, 30 - (datetime.now() - last_received).total_seconds())
+            await asyncio.sleep(wait_time)
 
     async def async_monitor_connection(self):
         while not self.killed:
