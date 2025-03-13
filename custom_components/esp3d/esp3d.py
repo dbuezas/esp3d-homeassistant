@@ -80,8 +80,7 @@ class Esp3d:
                 except:
                     self.reader, self.writer = (None, None)
 
-            wait_time = max(0, 30 - (datetime.now() - last_received).total_seconds())
-            await asyncio.sleep(wait_time)
+            await asyncio.sleep(30)
 
     async def async_monitor_connection(self):
         while not self.killed:
