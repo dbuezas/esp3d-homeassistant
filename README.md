@@ -1086,7 +1086,9 @@ mode: single
 
 
 <details>
-  <summary>Progress notification</summary>
+  <summary>Widget template</summary>
+  
+  See https://companion.home-assistant.io/docs/integrations/android-widgets/#template for how to add widgets in android 
   
 ```jinja2
 <b>{{states('sensor.ultimaker_notification')}}:</b> {{ states('sensor.ultimaker_progress')|int(100) }}%
