@@ -1082,7 +1082,7 @@ mode: single
 
 ## Android status widget
 
-![1000014598](https://github.com/user-attachments/assets/bdce2a62-4312-49d0-940f-e3a3aebcc088)
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/bdce2a62-4312-49d0-940f-e3a3aebcc088">
 
 
 <details>
