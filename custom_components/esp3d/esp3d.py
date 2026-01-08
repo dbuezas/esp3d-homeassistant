@@ -104,7 +104,7 @@ class Esp3d:
             self.writer.close()
             await self.writer.wait_closed()
 
-    async def async_send(self, gcode: str):
+    async def async_send(self, gcode: str, timeout: int):
         if self.writer is None or self.killed:
             raise ConnectionError()
         try:
@@ -127,7 +127,7 @@ class Esp3d:
         self.event_emitter.on(Event.ANY, append_response)
         self.event_emitter.on(Event.OK, stop_waiting)
         try:
-            await asyncio.wait_for(stop_event.wait(), timeout=5)
+            await asyncio.wait_for(stop_event.wait(), timeout=timeout)
         except asyncio.TimeoutError:
             if len(responses) == 0:
                 self.event_emitter.emit(Event.CONNECTION_STATUS, False)

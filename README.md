@@ -70,9 +70,10 @@ cards:
         show_icon: true
         type: button
         name: Preheat
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:heat-wave
         tap_action:
@@ -87,9 +88,10 @@ cards:
       - type: button
         name: Cool down
         entity: sensor.ultimaker_nozzle
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         icon: mdi:snowflake-alert
         tap_action:
           action: call-service
@@ -106,9 +108,10 @@ cards:
             name: Busy
       - type: button
         entity: switch.3d_printer_tuya_plug_5_switch
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Power
         icon: mdi:power
   - type: glance
@@ -131,9 +134,10 @@ cards:
     type: grid
     cards:
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Home X
         entity: sensor.ultimaker_nozzle
         icon: mdi:axis-y-arrow
@@ -145,9 +149,10 @@ cards:
           data:
             gcode: G28 X
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Home Y
         entity: sensor.ultimaker_nozzle
         icon: mdi:axis-x-arrow
@@ -159,9 +164,10 @@ cards:
           data:
             gcode: G28 Y
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Home Z
         entity: sensor.ultimaker_nozzle
         icon: mdi:axis-z-arrow
@@ -173,9 +179,10 @@ cards:
           data:
             gcode: G28 Z
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Home
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
@@ -191,11 +198,13 @@ cards:
     type: grid
     cards:
       - type: button
-        style: "ha-card { visibility: hidden}"
+        card_mod:
+          style: "ha-card { visibility: hidden}"
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-up-bold
         name: " "
@@ -210,11 +219,13 @@ cards:
               G1 Y+10
               G90
       - type: button
-        style: "ha-card { visibility: hidden}"
+        card_mod:
+          style: "ha-card { visibility: hidden}"
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Z -10
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-up-bold-outline
@@ -233,9 +244,10 @@ cards:
     type: grid
     cards:
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: " "
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-left-bold
@@ -250,9 +262,10 @@ cards:
               G1 X-10
               G90
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: " "
         entity: sensor.ultimaker_nozzle
         icon: mdi:circle
@@ -264,9 +277,10 @@ cards:
           data:
             gcode: G1 X100 Y100
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: " "
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-right-bold
@@ -281,9 +295,10 @@ cards:
               G1 X+10
               G90
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         name: Motors Off
         icon: mdi:hand-back-left-off-outline
@@ -299,11 +314,13 @@ cards:
     type: grid
     cards:
       - type: button
-        style: "ha-card { visibility: hidden}"
+        card_mod:
+          style: "ha-card { visibility: hidden}"
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: " "
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-down-bold
@@ -318,11 +335,13 @@ cards:
               G1 Y-10 
               G90
       - type: button
-        style: "ha-card { visibility: hidden}"
+        card_mod:
+          style: "ha-card { visibility: hidden}"
       - type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         name: Z +10
         entity: sensor.ultimaker_nozzle
         icon: mdi:arrow-down-bold-outline
@@ -343,9 +362,10 @@ cards:
       - show_icon: false
         name: 10mm/s
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -358,9 +378,10 @@ cards:
       - show_icon: false
         name: 50mm/s
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -373,9 +394,10 @@ cards:
       - show_icon: false
         name: 100mm/s
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -388,9 +410,10 @@ cards:
       - show_icon: false
         name: 200mm/s
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -407,9 +430,10 @@ cards:
       - show_icon: false
         name: 500mm/s²
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -422,9 +446,10 @@ cards:
       - show_icon: false
         name: 1000mm/s²
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -437,9 +462,10 @@ cards:
       - show_icon: false
         name: 5000mm/s²
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -452,9 +478,10 @@ cards:
       - show_icon: false
         name: 10000mm/s²
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -471,9 +498,10 @@ cards:
       - show_icon: false
         name: E-10
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -489,9 +517,10 @@ cards:
       - show_icon: false
         name: E-1
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -507,9 +536,10 @@ cards:
       - show_icon: false
         name: E+1
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -525,9 +555,10 @@ cards:
       - show_icon: false
         name: E+10
         type: button
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         entity: sensor.ultimaker_nozzle
         icon: mdi:home
         tap_action:
@@ -595,9 +626,10 @@ cards:
           action: toggle
         entity: switch.ultimaker_fetch_print_status
   - type: entities
-    style: >
-      {{'ha-card { opacity:.5; pointer-events: none }' if
-      states('binary_sensor.ultimaker_is_printing') | bool == true else ''}}
+    card_mod:
+      style: >-
+        {{'ha-card { opacity:.5; pointer-events: none }' if
+        states('binary_sensor.ultimaker_is_printing') | bool == true else ''}}
     entities:
       - select.ultimaker_file_selector
   - square: false
@@ -634,9 +666,10 @@ cards:
               M20 L
       - show_name: true
         show_icon: true
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         type: button
         name: Print
         entity: sensor.ultimaker_nozzle
@@ -683,9 +716,10 @@ cards:
               M108
       - show_name: true
         show_icon: true
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         type: button
         name: Change filament
         entity: sensor.ultimaker_nozzle
@@ -715,9 +749,10 @@ cards:
               M420 V
       - show_name: true
         show_icon: true
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         type: button
         name: Load filament
         entity: sensor.ultimaker_nozzle
@@ -732,9 +767,10 @@ cards:
               M701
       - show_name: true
         show_icon: true
-        style: >-
-          {{'ha-card { opacity:.5; pointer-events: none }' if
-          states('binary_sensor.ultimaker_is_printing') | bool else ''}}
+        card_mod:
+          style: >-
+            {{'ha-card { opacity:.5; pointer-events: none }' if
+            states('binary_sensor.ultimaker_is_printing') | bool else ''}}
         type: button
         name: Unload filament
         entity: sensor.ultimaker_nozzle

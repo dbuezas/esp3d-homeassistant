@@ -47,7 +47,7 @@ def setup_hass_services(hass: HomeAssistant):
                 # Now you can access the data associated with this config entry
                 esp3d = hass.data[DOMAIN].get(config_entry_id)
                 if esp3d:
-                    response = await esp3d.async_send(call.data.get("gcode"))
+                    response = await esp3d.async_send(call.data.get("gcode"), call.data.get("timeout"))
                     if call.return_response:
                         return {"response": response}
                     return None
@@ -60,6 +60,7 @@ def setup_hass_services(hass: HomeAssistant):
             {
                 vol.Required("device_id"): vol.All(cv.ensure_list, [cv.string]),
                 vol.Required("gcode"): cv.string,
+                vol.Required("timeout", default=5): vol.All(int, vol.Range(min=1, max=60)),
             }
         ),
         supports_response=SupportsResponse.OPTIONAL,
