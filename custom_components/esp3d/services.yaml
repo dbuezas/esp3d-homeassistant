@@ -6,7 +6,17 @@ send_gcode:
   fields:
     gcode:
       name: gcode
+      description: Sequence of commands to send to the printer, e.g. M31 (get elapsed print time) or G28 Z (home Z axis).
       required: true
       selector:
         text:
           multiline: true
+    timeout:
+      name: timeout
+      description: Seconds to wait for the printer's response.
+      required: false
+      default: 5
+      selector:
+        number:
+          min: 1
+          max: 60
