@@ -104,7 +104,7 @@ class Esp3d:
             self.writer.close()
             await self.writer.wait_closed()
 
-    async def async_send(self, gcode: str, timeout: int):
+    async def async_send(self, gcode: str, timeout=5):
         if self.writer is None or self.killed:
             raise ConnectionError()
         try:
