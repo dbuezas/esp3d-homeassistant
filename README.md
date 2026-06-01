@@ -16,7 +16,19 @@ Esp3d (or any serial wifi equivalent) integration with home assistant
 
 - AUTO_REPORT_TEMPERATURES
 - AUTO_REPORT_POSITION
-- AUTO_REPORT_SD_STATUS
+- AUTO_REPORT_SD_STATUS (for SD-card-based print progress)
+- M73_REPORT (for TFT/host-based print progress and remaining time)
+
+### Print progress & remaining time
+
+Two sources are supported and can coexist:
+
+| Source | Marlin feature | How it works |
+|--------|---------------|--------------|
+| SD card | `AUTO_REPORT_SD_STATUS` | Enable the *Fetch print status* switch to poll `M27`. Progress is derived from bytes read vs file size. |
+| TFT / host printing | `M73_REPORT` | No polling needed. Marlin echoes `echo: M73 Progress: X%; Time left: Xm;` to serial at each layer change when the slicer sends an `M73` command. The integration parses this automatically and exposes `sensor.<device>_print_progress` (%) and `sensor.<device>_remaining` (minutes). |
+
+When both are active, M73 data takes priority for the progress sensor.
 
 # Installation
 
