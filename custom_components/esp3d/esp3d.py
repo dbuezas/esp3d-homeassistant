@@ -60,6 +60,7 @@ class Esp3d:
                 self.parse_file_list(line)
                 self.parse_file_opened(line)
                 self.parse_sd_card_event(line)
+                self.parse_m73(line)
                 self.parse_notification(line)
                 self.event_emitter.emit(Event.CONNECTION_STATUS, True)
 
@@ -241,6 +242,15 @@ class Esp3d:
             self.event_emitter.emit(Event.SDCARD_INSERTED)
         if re.search(r"No media$", input_string):
             self.event_emitter.emit(Event.SDCARD_REMOVED)
+
+    def parse_m73(self, input_string: str):
+        # echo: M73 Progress: 2%; Time left: 335m;
+        match = re.search(r"M73 Progress:\s*(\d+)%.*Time left:\s*(\d+)m", input_string)
+        if match:
+            progress, remaining = match.groups()
+            self.event_emitter.emit(Event.M73_PROGRESS, int(progress))
+            self.event_emitter.emit(Event.M73_REMAINING, int(remaining))
+            self.event_emitter.emit(Event.IS_PRINTING, int(progress) > 0)
 
     def parse_notification(self, input_string: str):
         match = re.search(r"^//action:notification (.*)$", input_string)

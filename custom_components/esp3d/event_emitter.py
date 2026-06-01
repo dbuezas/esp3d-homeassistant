@@ -34,6 +34,8 @@ class Event(Enum):
     FILE_OPENED = auto()
     IS_PRINTING = auto()
     NOTIFICATION = auto()
+    M73_PROGRESS = auto()
+    M73_REMAINING = auto()
     ANY = auto()
 
 

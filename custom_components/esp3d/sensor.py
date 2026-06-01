@@ -33,6 +33,7 @@ async def async_setup_entry(
         CurrentByte(esp3d),
         TotalBytes(esp3d),
         PrintProgress(esp3d),
+        PrintRemaining(esp3d),
         NotificationEntity(esp3d),
     ]
     async_add_entities(new_devices)
@@ -182,8 +183,10 @@ class PrintProgress(Base):
         self._attr_suggested_display_precision = 2
         self.esp3d.event_emitter.on(Event.CURRENT_BYTE, self.set_current_byte)
         self.esp3d.event_emitter.on(Event.TOTAL_BYTES, self.set_total_bytes)
+        self.esp3d.event_emitter.on(Event.M73_PROGRESS, self.set_m73_progress)
         self.current_byte = None
-        self.total_byte = None
+        self.total_bytes = None
+        self.m73_progress = None
 
     def set_current_byte(self, value):
         self.current_byte = value
@@ -192,10 +195,25 @@ class PrintProgress(Base):
         self.total_bytes = value
         self.schedule_update_ha_state()
 
+    def set_m73_progress(self, value):
+        self.m73_progress = value
+        self.schedule_update_ha_state()
+
     @property
     def state(self):
+        if self.m73_progress is not None:
+            return self.m73_progress
         if self.current_byte is not None and self.total_bytes is not None:
             return float(self.current_byte) / float(self.total_bytes) * 100
+
+
+class PrintRemaining(Base):
+    def __init__(self, esp3d: Esp3d):
+        super().__init__(esp3d)
+        self._attr_name = "Remaining"
+        self._attr_icon = "mdi:timer-sand"
+        self._attr_native_unit_of_measurement = "min"
+        self.esp3d.event_emitter.on(Event.M73_REMAINING, self.set_attr_native_value)
 
 
 class NotificationEntity(Base):
